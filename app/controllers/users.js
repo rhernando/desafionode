@@ -77,10 +77,14 @@ exports.create = function(req, res, next) {
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
+            //noinspection CodeAssistanceForRequiredModule
             require('crypto').randomBytes(48, function(ex, buf) {
                 var token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
                 user.confirmation_token = token
-                user.save
+                user.save(function (err) {
+                    if (err)
+                        console.log('error al guardar el token');
+                });
                 var locals = {
                     email: user.email,
                     subject: 'Confirma tu correo',
@@ -118,4 +122,22 @@ exports.user = function(req, res, next, id) {
             req.profile = user;
             next();
         });
+};
+
+exports.confirm_account = function(req, res){
+    console.log(req.params.token);
+
+    User.findOne({ 'confirmation_token': req.params.token }, function (err, user) {
+        if (err || !req.params.token.length || !user ) {
+            console.log('error!');
+        }
+        console.log(user);
+        user.confirmation_token = '';
+        user.save(function (err) {
+            if (err)
+                console.log('error al guardar el token');
+        });
+        return res.redirect('/');
+    })
+
 };
