@@ -4,7 +4,9 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    User = mongoose.model('User');
+    User = mongoose.model('User'),
+    mailer = require('../../config/mailer'),
+    config = require('../../config/config');
 
 /**
  * Auth callback
@@ -75,6 +77,21 @@ exports.create = function(req, res, next) {
         }
         req.logIn(user, function(err) {
             if (err) return next(err);
+            require('crypto').randomBytes(48, function(ex, buf) {
+                var token = buf.toString('base64').replace(/\//g,'_').replace(/\+/g,'-');
+                user.confirmation_token = token
+                user.save
+                var locals = {
+                    email: user.email,
+                    subject: 'Confirma tu correo',
+                    name: user.username,
+                    confirmUrl: config.url_base + 'confirmation/' + token
+                };
+                mailer.sendOne('confirmation', locals, function (err, responseStatus, html, text) {
+                    console.log('mail sent');
+                });
+
+            });
             return res.redirect('/');
         });
     });

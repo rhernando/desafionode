@@ -22,6 +22,7 @@ var UserSchema = new Schema({
     hashed_password: String,
     provider: String,
     salt: String,
+    confirmation_token: String,
     teams: [{type: mongoose.Schema.Types.ObjectId, ref: 'Team'}],
     facebook: {},
     twitter: {},

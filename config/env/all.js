@@ -12,5 +12,12 @@ module.exports = {
 	// is used to compute a session hash
 	sessionSecret: 'MEAN',
 	// The name of the MongoDB collection to store sessions in
-	sessionCollection: 'sessions'
+	sessionCollection: 'sessions',
+    mailer: {
+        auth: {
+            user: 'hablandoencuero@gmail.com',
+            pass: 'prospecta'
+        },
+        defaultFromAddress: 'Desafio Futbol <desafiofutbol2013@gmail.com>'
+    }
 }
