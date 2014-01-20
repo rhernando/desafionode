@@ -1,3 +1,8 @@
-<section data-ng-controller="IndexController">
-	<h1>This is the home view</h1>
+<section data-ng-controller="IndexController" data-ng-hide="global.authenticated">
+	<h1>Entra en desafio mundial .....</h1>
+    <p>Despues del éxito de desafiofutbo.com, presentamos ... . ..</p>
+</section>
+
+<section data-ng-controller="IndexController" data-ng-show="global.authenticated">
+    <h1>menu de usuario</h1>
 </section>

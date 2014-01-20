@@ -3,7 +3,7 @@
 module.exports = {
     db: "mongodb://localhost/desafiojs-dev",
     app: {
-        name: "MEAN - A Modern Stack - Development"
+        name: "DesafioFutbol - el mundial - Development"
     },
     facebook: {
         clientID: "APP_ID",

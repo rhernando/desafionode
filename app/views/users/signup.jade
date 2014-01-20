@@ -3,7 +3,7 @@ extends auth
 block auth
   form.signup.form-horizontal(action="/users", method="post")
     .control-group
-      label.control-label(for='name') Full name
+      label.control-label(for='name') Nombre
       .controls
         input#name(type='text', name="name", placeholder='Full name', value=user.name)
 
@@ -13,7 +13,7 @@ block auth
         input#email(type='text', name="email", placeholder='Email', value=user.email)
 
     .control-group
-      label.control-label(for='username') Username
+      label.control-label(for='username') Nombre de usuario
       .controls
         input#username(type='text', name="username", placeholder='Username', value=user.username)
 
@@ -23,7 +23,7 @@ block auth
         input#password(type='password', name="password", placeholder='Password')
 
     .form-actions
-      button.btn.btn-primary(type='submit') Sign up
+      button.btn.btn-primary(type='submit') Confirma Alta
       &nbsp;
-      | or&nbsp;
-      a.show-login(href="/signin") login
+      | o&nbsp;
+      a.show-login(href="/signin") accede a tu cuenta

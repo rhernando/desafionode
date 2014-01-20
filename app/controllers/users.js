@@ -57,14 +57,15 @@ exports.create = function(req, res, next) {
 
     user.provider = 'local';
     user.save(function(err) {
+        console.log(err);
         if (err) {
             switch (err.code) {
                 case 11000:
                 case 11001:
-                    message = 'Username already exists';
+                    message = 'El nombre de usuario ya existe';
                     break;
                 default:
-                    message = 'Please fill all the required fields';
+                    message = 'Rellena correctamente los campos';
             }
 
             return res.render('users/signup', {
