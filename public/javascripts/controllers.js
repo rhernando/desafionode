@@ -1,6 +1,6 @@
 // Managing the poll list
-function JugadorListCtrl($scope) {
-	$scope.jugadores = [];
+function JugadorListCtrl($scope, Jugador) {
+	$scope.jugadores = Jugador.query();
 }
 // Voting / viewing poll results
 function PollItemCtrl($scope, $routeParams) {

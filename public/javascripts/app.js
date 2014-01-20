@@ -1,4 +1,4 @@
-angular.module('desafio', []).config(
+angular.module('desafio', ['jugadorServices']).config(
 		[ '$routeProvider', function($routeProvider) {
 			$routeProvider.when('/jugadores', {
 				templateUrl : 'partials/listJugadores.html',
