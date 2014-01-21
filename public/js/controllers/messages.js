@@ -3,8 +3,7 @@
 //MESSAGES through socket.io
 angular.module('desafio.messages').controller('MessagesController', ['$scope', 'socket', 'Messages', function ($scope, socket, Messages) {
     socket.on('init', function (data) {
-        $scope.name = data.name;
-        $scope.users = data.users;
+        console.log(data);
     });
 
     socket.on('send:message', function (message) {
@@ -20,7 +19,7 @@ angular.module('desafio.messages').controller('MessagesController', ['$scope', '
             user: 'chatroom',
             text: 'User ' + data.name + ' has joined.'
         });
-        $scope.users.push(data.name);
+        //$scope.users.push(data.name);
     });
 
     // add a message to the conversation when a user disconnects or leaves the room
@@ -30,13 +29,13 @@ angular.module('desafio.messages').controller('MessagesController', ['$scope', '
             text: 'User ' + data.name + ' has left.'
         });
         var i, user;
-        for (i = 0; i < $scope.users.length; i++) {
+        /*for (i = 0; i < $scope.users.length; i++) {
             user = $scope.users[i];
             if (user === data.name) {
                 $scope.users.splice(i, 1);
                 break;
             }
-        }
+        }*/
     });
 
     // Private helpers
@@ -84,7 +83,7 @@ angular.module('desafio.messages').controller('MessagesController', ['$scope', '
         // add the message to our model locally
         $scope.messages.push({
             user: $scope.name,
-            text: $scope.message
+            content: $scope.message
         });
 
         // clear message box
