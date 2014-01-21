@@ -16,7 +16,7 @@ module.exports = {
     mailer: {
         auth: {
             user: 'hablandoencuero@gmail.com',
-            pass: 'prospecta'
+            pass: ''
         },
         defaultFromAddress: 'Desafio Futbol <desafiofutbol2013@gmail.com>'
     }

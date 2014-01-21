@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean', ['ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.articles']);
+angular.module('desafio', ['ngCookies', 'ngResource', 'ngRoute', 'ui.bootstrap', 'ui.route', 'desafio.system', 'desafio.articles']);
 
-angular.module('mean.system', []);
-angular.module('mean.articles', []);
+angular.module('desafio.system', []);
+angular.module('desafio.articles', []);
