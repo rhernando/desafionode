@@ -75,6 +75,17 @@ module.exports = function(app, passport, auth) {
     // Finish with setting up the articleId param
     app.param('articleId', articles.article);
 
+    // Article Routes
+    var messages = require('../app/controllers/messages');
+    app.get('/messages', messages.all);
+    app.post('/messages', auth.requiresLogin, messages.create);
+    app.get('/messages/:messageId', articles.show);
+    app.put('/messages/:messageId', auth.requiresLogin, messages.update);
+    app.del('/messages/:messageId', auth.requiresLogin, messages.destroy);
+
+    // Finish with setting up the articleId param
+    app.param('messageId', messages.message);
+
     // Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);
