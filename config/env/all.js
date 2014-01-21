@@ -6,7 +6,9 @@ var rootPath = path.normalize(__dirname + '/../..');
 module.exports = {
 	root: rootPath,
 	port: process.env.PORT || 3003,
-	db: process.env.MONGOLAB_URI,
+	db: process.env.MONGOLAB_URI ||
+        process.env.MONGOHQ_URL ||
+        'mongodb://localhost/desafiojs-dev',
 
 	// The secret should be set to a non-guessable string that
 	// is used to compute a session hash
