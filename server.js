@@ -64,18 +64,18 @@ server.listen(port);
 console.log('Express app started on port ' + port);
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('init', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+    socket.emit('init', { username: 'Sistema', type: 'System', content: 'Iniciando chat' });
+
     socket.broadcast.emit('user:join', {
         //name: name
     });
     // broadcast a user's message to other users
     socket.on('send:message', function (data) {
+        console.log(data);
         socket.broadcast.emit('send:message', {
-       //     user: name,
-            text: data.message
+
+            username: data.username,
+            content: data.content
         });
     });
     //  when a user leaves broadcast it to other users

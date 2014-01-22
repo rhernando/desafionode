@@ -1,0 +1,20 @@
+<div class="col-md-3" ng-controller='MessagesController' data-ng-init="find()" data-ng-show="global.authenticated">
+    <h3>Mensajes</h3>
+
+    <div class="" ng-repeat='message in messages'>
+
+        <blockquote ng-if="message.type == System" class="well">
+            {{message.content}}
+            <small>{{message.username}}</small>
+        </blockquote>
+        <p class="text-primary" ng-if="message.type != System">{{message.content}}</p>
+    </div>
+    <div class="clearfix"></div>
+    <form ng-submit='sendMessage()' role="form">
+        <div class="form-group">
+            <label for="message">Mensaje</label>
+            <input class="form-control" size='60' ng-model='message'/>
+            <input type='submit' value='Send' class="btn btn-default"/>
+        </div>
+    </form>
+</div>
