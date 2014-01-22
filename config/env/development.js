@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: "mongodb://localhost/desafiojs-dev",
+    //db: "mongodb://localhost/desafiojs-dev",
     app: {
         name: "DesafioFutbol - el mundial - Development"
     },
