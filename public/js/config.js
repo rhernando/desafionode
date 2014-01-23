@@ -29,6 +29,9 @@ angular.module('desafio').config(['$routeProvider',
                 templateUrl: 'views/articles/view.html'
             }).
             when('/teams/new', {
+                templateUrl: 'views/teams/select_league.html'
+            }).
+            when('/teams/newt', {
                 templateUrl: 'views/teams/new.html'
             }).
             when('/', {

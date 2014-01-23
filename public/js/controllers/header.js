@@ -16,7 +16,7 @@ angular.module('desafio.system').controller('HeaderController', ['$scope', 'Glob
 	    if (Global.user.teams.length > 0){
 			$scope.menu.push({'misequipos' : 'ajajaja' ,'link' : '#!/newteam'})
 	    }else{
-	    	$scope.menu.push({'title' : 'Crear Equipo' ,'link' : '/teams/new'})
+	    	$scope.menu.push({'title' : 'Crear Equipo' ,'link' : '/teams/new/'})
 	    }
     	
     }
