@@ -86,6 +86,11 @@ module.exports = function(app, passport, auth) {
     // Finish with setting up the articleId param
     app.param('messageId', messages.message);
 
+    // Team Routes
+    var teams = require('../app/controllers/teams');
+    app.post('/teams', auth.requiresLogin, teams.create);
+    app.get('/teams/new', auth.requiresLogin, teams.new);
+
     // Home route
     var index = require('../app/controllers/index');
     app.get('/', index.render);

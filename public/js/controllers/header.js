@@ -5,18 +5,18 @@ angular.module('desafio.system').controller('HeaderController', ['$scope', 'Glob
 
     $scope.menu = [{
         'title': 'Articles',
-        'link': 'articles'
+        'link': '#!/articles'
     }, {
         'title': 'Create New Article',
-        'link': 'articles/create'
+        'link': '#!/articles/create'
     }];
 
     console.log($scope.menu);
     if (Global.user){
 	    if (Global.user.teams.length > 0){
-			$scope.menu.push({'misequipos' : 'ajajaja' ,'link' : 'newteam'})
+			$scope.menu.push({'misequipos' : 'ajajaja' ,'link' : '#!/newteam'})
 	    }else{
-	    	$scope.menu.push({'title' : 'Crear Equipo' ,'link' : 'newteam'})
+	    	$scope.menu.push({'title' : 'Crear Equipo' ,'link' : '/teams/new'})
 	    }
     	
     }

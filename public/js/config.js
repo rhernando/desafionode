@@ -28,6 +28,9 @@ angular.module('desafio').config(['$routeProvider',
             when('/messages/:messageId', {
                 templateUrl: 'views/articles/view.html'
             }).
+            when('/teams/new', {
+                templateUrl: 'views/teams/new.html'
+            }).
             when('/', {
                 templateUrl: 'views/index.html'
             }).

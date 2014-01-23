@@ -54,9 +54,11 @@ angular.module('desafio.messages').controller('MessagesController', ['$scope', '
     };
 
     $scope.find = function () {
-        Messages.query(function (messages) {
-            $scope.messages = messages;
-        });
+        if (Global.authenticated) {
+            Messages.query(function (messages) {
+                $scope.messages = messages;
+            });
+        }
     };
 
 }]);
